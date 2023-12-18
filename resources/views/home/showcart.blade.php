@@ -257,7 +257,7 @@ select {
         <div>
           <h1 style="font-size: 25px; padding-bottom:15px">Proceed to Order</h1>
           <a href="{{url('delivery_address')}}" class="btn btn-danger">Cash On Delivery</a>
-          <a href="{{url('razor',$totalprice)}}" class="btn btn-danger">Pay Using Card</a>
+          <a href="{{url('razorpay',$totalprice)}}" class="btn btn-danger">Pay Using Card</a>
         </div>
       
       </div>

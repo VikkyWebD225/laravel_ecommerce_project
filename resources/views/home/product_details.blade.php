@@ -33,6 +33,13 @@
 
       </div>
 
+      @if(session()->has('message'))
+      <div class="alert alert-success">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+          {{session()->get('message')}}
+      </div>
+      @endif
+
       <div class="col-sm-6 col-md-4 col-lg-4" style="margin: auto; width: 50%;  padding: 30px;">
          
             <div class="img-box" style="padding: 20px">
@@ -86,6 +93,8 @@
                   <div class="col-md-4">
                      <input type="submit" value="Add To Cart">
                   </div>
+
+                 
               
                </div>
             </form>

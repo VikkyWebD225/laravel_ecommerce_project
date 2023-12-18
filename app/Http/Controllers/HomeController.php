@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 
 use Illuminate\Http\Request;
+use Razorpay\Api\Api;
 use Illuminate\Support\Facades\DB;
 use App\Models\Country;
 use App\Models\State;
 use App\Models\City;
-use Razorpay\Api\Api;
 use Session;
 use Exception;
 use App\Models\User;
@@ -124,6 +124,9 @@ class HomeController extends Controller
     public function product_details($id)
     {
         $product = Product::find($id);
+
+        
+
         
         return view('home.product_details',compact('product'));
     }
@@ -155,6 +158,10 @@ class HomeController extends Controller
             $cart->save();
 
             Alert::success('Product Added Successfully','We have added product to the cart');
+
+            session()->flash('message', 'Product added to cart successfully.');
+
+
 
             return redirect()->back();
           }
@@ -279,6 +286,12 @@ class HomeController extends Controller
 
     public function show_order(Request $request)
     {
+        // // $order::where('user_id' -> Auth()->id)->get();
+        // // if($order->product_id){
+
+        // }else{
+
+        // }
         if(Auth::id())
         {
             
@@ -356,33 +369,7 @@ return redirect()->back()->with('message','We Have Receive Your Order. We Will C
 
   
 
-    public function razor()
-    {        
-        return view('home.razorpayview');
-    }
-
-    public function store(Request $request)
-    {
-        $input = $request->all();
-  
-        $api = new Api(env('RAZORPAY_KEY'), env('RAZORPAY_SECRET'));
-  
-        $payment = $api->payment->fetch($input['razorpay_payment_id']);
-  
-        if(count($input)  && !empty($input['razorpay_payment_id'])) {
-            try {
-                $response = $api->payment->fetch($input['razorpay_payment_id'])->capture(array('amount'=>$payment['amount'])); 
-  
-            } catch (Exception $e) {
-                return  $e->getMessage();
-                Session::put('error',$e->getMessage());
-                return redirect()->back();
-            }
-        }
-          
-        Session::put('success', 'Payment successful');
-        return redirect()->back();
-    }
+   
 
     public function add_comment(Request $request)
     {
@@ -461,6 +448,44 @@ return redirect()->back()->with('message','We Have Receive Your Order. We Will C
 
         return view('home.all_product',compact('product','comment','reply'));
 
+    }
+
+    public function razorpay($totalprice)
+    {
+ 
+        return view('home.payment',compact('totalprice'));
+
+    }
+
+    public function payment(Request $request,$totalprice)
+    {
+        $input = $request->all();
+  
+        $api = new Api(env('RAZORPAY_KEY'), env('RAZORPAY_SECRET'));
+  
+        $payment = $api->payment->fetch($input['razorpay_payment_id']);
+  
+        if(count($input)  && !empty($input['razorpay_payment_id']))
+        { 
+            try 
+        {
+            $response = $api->payment->fetch($input['razorpay_payment_id'])->capture(array('amount'=>$payment['amount']));
+        }
+
+        catch (\Exception $e) 
+        {
+            return  $e->getMessage();
+            \Session::put('error',$e->getMessage());
+            return redirect()->back();
+        }
+
+    }
+               
+            
+        
+          
+        \Session::put('success', 'Payment successful');
+        return redirect('razorpay');
     }
 
     

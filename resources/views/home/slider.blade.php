@@ -17,7 +17,7 @@
                             On Everything
                          </h1>
                          <p>
-                            Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.
+                           Discover a shopping experience like never before with our limited-time sale! 🛍️ Dive into a world of style, quality, and savings as we present an irresistible offer just for you.
                          </p>
                          <div class="btn-box">
                             <a href="" class="btn1">
@@ -42,7 +42,7 @@
                             On Everything
                          </h1>
                          <p>
-                            Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.
+                           Discover a shopping experience like never before with our limited-time sale! 🛍️ Dive into a world of style, quality, and savings as we present an irresistible offer just for you.
                          </p>
                          <div class="btn-box">
                             <a href="" class="btn1">
@@ -67,7 +67,7 @@
                             On Everything
                          </h1>
                          <p>
-                            Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.
+                           Discover a shopping experience like never before with our limited-time sale! 🛍️ Dive into a world of style, quality, and savings as we present an irresistible offer just for you.
                          </p>
                          <div class="btn-box">
                             <a href="" class="btn1">
